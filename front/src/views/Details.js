@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Card, CardContent, Container, Grid, List, ListItem, ListItemText, Typography} from "@material-ui/core";
+import {Card, CardContent, Container, Grid} from "@material-ui/core";
 import ApplicationBar from "../components/AppBar/ApplicationBar";
 import {
     useParams

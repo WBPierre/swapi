@@ -2,16 +2,9 @@ import React from "react";
 import {
     AppBar,
     Button,
-    Divider,
-    Grid,
-    IconButton,
-    InputBase,
-    Paper,
-    TextField,
     Toolbar,
     Typography
 } from "@material-ui/core";
-import SearchIcon from '@material-ui/icons/Search';
 import {useHistory} from "react-router-dom";
 import * as Routes from "../../navigation/Routes";
 import Cookies from 'js-cookie'

@@ -1,5 +1,5 @@
 import React from "react";
-import {Button, Grid, IconButton, ListItem, ListItemSecondaryAction, ListItemText, Typography} from "@material-ui/core";
+import {Button, Grid, Typography} from "@material-ui/core";
 import {useHistory} from "react-router-dom";
 import * as Routes from "../navigation/Routes";
 
