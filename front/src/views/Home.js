@@ -8,8 +8,6 @@ import {
     FormControl,
     Grid, IconButton, Input, InputAdornment,
     InputLabel,
-    TextField,
-    Typography
 } from "@material-ui/core";
 import ApplicationBar from "../components/AppBar/ApplicationBar";
 import Visibility from '@material-ui/icons/Visibility';
@@ -27,15 +25,18 @@ function Home(){
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    useEffect(async () => {
-        let token = Cookies.get('Token');
-        if(token){
-            const res = await axios.post('/user/verifyToken', {token:token});
-            if(res.status === 200){
-                history.push(Routes.EXPLORER);
+    useEffect( () => {
+        async function verifyConnection(){
+            let token = Cookies.get('Token');
+            if(token){
+                const res = await axios.post('/user/verifyToken', {token:token});
+                if(res.status === 200){
+                    history.push(Routes.EXPLORER);
+                }
             }
         }
-    }, [])
+        verifyConnection();
+    }, [history]);
 
     const handleChange = (e) => {
         if(e.target.name === "username"){
@@ -51,7 +52,7 @@ function Home(){
 
     const handleFormSubmit = async () => {
         if(username.length > 0 && password.length > 0){
-            const res = await axios.post(
+            await axios.post(
                 '/user/login',
                 {
                     username:username,

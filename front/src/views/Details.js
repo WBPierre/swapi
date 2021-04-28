@@ -12,9 +12,12 @@ function Details(){
 
     const [result, setResult] = useState(null);
 
-    useEffect(async () => {
-        const res = await axios.get('/swapi/'+resource+'/'+id);
-        setResult(res.data);
+    useEffect( () => {
+        async function getResource(){
+            const res = await axios.get('/swapi/'+resource+'/'+id);
+            setResult(res.data);
+        }
+        getResource();
     },[resource, id])
     if(result !== null){
         return(

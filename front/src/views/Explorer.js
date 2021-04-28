@@ -57,10 +57,13 @@ function Explorer(){
         }
     }
 
-    useEffect(async () => {
-        const res = await axios.get('/swapi/');
-        setListType(Object.keys(res.data));
-        setType(Object.keys(res.data)[0]);
+    useEffect( () => {
+        async function getList(){
+            const res = await axios.get('/swapi/');
+            setListType(Object.keys(res.data));
+            setType(Object.keys(res.data)[0]);
+        }
+        getList();
     }, []);
 
     const handleChangePage = async (event, newPage) => {
